@@ -28,8 +28,8 @@ void process_string(string& exp)
 {
 	stack<obj>s;
 	stack<obj>s1;
-	size_t p = 0 , q;
-	while (p < exp.size() && p!= -1)
+	size_t p = 0 , q,count;
+	while (p < (exp.size()-1) && p!= -1)
 	{
 		skipws(exp, p);
 		if (exp[p] > '0' && exp[p] < '9')
@@ -41,11 +41,18 @@ void process_string(string& exp)
 		{
 			if (!s1.empty())
 			{
-				if (s1.top().t >= 0 && s1.top().t != 2)
+				if (s1.top().t != 2)
 				{
-					s.push(obj(s1.top().t));
-					s.pop();
-					s.push(obj(ADD));
+					count = s1.size();
+					for (size_t i = 0; i < count; i++)
+					{
+						if (s1.top().t >= 0 && s1.top().t != 2)
+						{
+							s.push(obj(s1.top().t));
+							s1.pop();
+						}
+					}
+					s1.push(obj(ADD));
 				}
 				else
 				{
@@ -62,11 +69,18 @@ void process_string(string& exp)
 		{
 			if (!s1.empty())
 			{
-				if (s1.top().t >= 0 && s1.top().t != 2)
+				if ( s1.top().t != 2)
 				{
-					s.push(obj(s1.top().t));
-					s.pop();
-					s.push(obj(SUB));
+					count = s1.size();
+					for (size_t i = 0; i < count; i++)
+					{
+						if (s1.top().t >= 0 && s1.top().t != 2)
+						{
+							s.push(obj(s1.top().t));
+							s1.pop();
+						}
+					}
+					s1.push(obj(SUB));
 				}
 				else
 				{
@@ -83,11 +97,18 @@ void process_string(string& exp)
 		{
 			if (!s1.empty())
 			{
-				if (s1.top().t >= 1 && s1.top().t != 2)
+				if (s1.top().t != 2)
 				{
-					s.push(obj(s1.top().t));
-					s.pop();
-					s.push(obj(MUL));
+					count = s1.size();
+					for (size_t i = 0; i < count; i++)
+					{
+						if (s1.top().t >= 1 && s1.top().t != 2)
+						{
+							s.push(obj(s1.top().t));
+							s1.pop();
+						}
+					}
+					s1.push(obj(MUL));
 				}
 				else
 				{
@@ -104,11 +125,18 @@ void process_string(string& exp)
 		{
 			if (!s1.empty())
 			{
-				if (s1.top().t >= 1 && s1.top().t != 2)
+				if (s1.top().t != 2)
 				{
-					s.push(obj(s1.top().t));
-					s.pop();
-					s.push(obj(DIV));
+					count = s1.size();
+					for (size_t i = 0; i < count; i++)
+					{
+						if (s1.top().t >= 1 && s1.top().t != 2)
+						{
+							s.push(obj(s1.top().t));
+							s1.pop();
+						}
+					}
+					s1.push(obj(DIV));
 				}
 				else
 				{
@@ -128,7 +156,7 @@ void process_string(string& exp)
 		}
 		else if (exp[p] == ')')
 		{
-			while (s1.top().t != '(')
+			while (s1.top().t != 2)
 			{
 				s.push(obj(s1.top().t));
 				s1.pop();
@@ -190,9 +218,9 @@ void process_string(string& exp)
 int main(int argc,char** argv)
 {
 	
-	string exp;
 	cout << "please input expression:" << endl;
-	getline(cin, exp);
+	//getline(cin, exp);
+	string exp = "1+2*2+(2*1+2)*2=";
 	process_string(exp);
 
 	return 0;
