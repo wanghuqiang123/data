@@ -1,4 +1,4 @@
-/*利用C++ vector实现的循环队列*/
+
 
 #include<iostream>
 #include<algorithm>
