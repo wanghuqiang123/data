@@ -43,7 +43,7 @@ namespace Wanglib
 		bool isEmpty()const
 		{
 			bool ret = true;
-			if (array.size() == 0)
+			if (array.size() != 0)
 				ret = false;
 			return ret;
 		}
@@ -103,7 +103,7 @@ namespace Wanglib
 
 		void print()const
 		{
-			int h = log2(curruentSize - 1) + 1;
+			int h = log2(curruentSize) + 1;
 			int current = 1;
 			for (int i = 1; i <= h; i++)
 			{

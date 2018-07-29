@@ -1,2 +1,7 @@
-﻿  data_struct.vcxproj -> C:\Users\Administrator\documents\visual studio 2015\Projects\data_struct\x64\Debug\data_struct.exe
+﻿  main.cpp
+c:\users\administrator\documents\visual studio 2015\projects\data_struct\data_struct\binaryheap.h(106): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+  c:\users\administrator\documents\visual studio 2015\projects\data_struct\data_struct\binaryheap.h(105): note: 编译类 模板 成员函数“void Wanglib::BinaryHeap<int>::print(void) const”时
+  c:\users\administrator\documents\visual studio 2015\projects\data_struct\data_struct\main.cpp(15): note: 参见对正在编译的函数 模板 实例化“void Wanglib::BinaryHeap<int>::print(void) const”的引用
+  c:\users\administrator\documents\visual studio 2015\projects\data_struct\data_struct\main.cpp(9): note: 参见对正在编译的类 模板 实例化“Wanglib::BinaryHeap<int>”的引用
+  data_struct.vcxproj -> C:\Users\Administrator\documents\visual studio 2015\Projects\data_struct\x64\Debug\data_struct.exe
   data_struct.vcxproj -> C:\Users\Administrator\documents\visual studio 2015\Projects\data_struct\x64\Debug\data_struct.pdb (Partial PDB)
